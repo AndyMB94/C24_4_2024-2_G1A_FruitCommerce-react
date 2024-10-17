@@ -1,24 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import RoleSelection from './components/RoleSelection';
+import CompradorPage from './components/CompradorPage';
+import ProveedorPage from './components/ProveedorPage';
+import GestionarProductos from './components/GestionarProductos';
+import LoginSuccess from './components/LoginSuccess';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div className="App">
+        <Routes>
+          <Route path="/" element={<RoleSelection />} />
+          <Route path="/comprador" element={<CompradorPage />} />
+          <Route path="/proveedor" element={<ProveedorPage />} />
+          <Route path="/gestionar-productos" element={<GestionarProductos />} />
+          <Route path="/login-success" element={<LoginSuccess />} /> {/* Nueva ruta para capturar el token */}
+        </Routes>
+      </div>
+    </Router>
   );
 }
 
